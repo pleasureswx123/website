@@ -1,0 +1,416 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #0a0e27;
+  --foreground: #ffffff;
+  --card: #1a1f3a;
+  --card-foreground: #ffffff;
+  --popover: #1a1f3a;
+  --popover-foreground: #ffffff;
+  --primary: #00d4ff;
+  --primary-foreground: #0a0e27;
+  --secondary: #8b5cf6;
+  --secondary-foreground: #ffffff;
+  --muted: #2a2f4a;
+  --muted-foreground: #a0a9c0;
+  --accent: #ff6b9d;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #2a2f4a;
+  --input: #2a2f4a;
+  --ring: #00d4ff;
+  --chart-1: #00d4ff;
+  --chart-2: #8b5cf6;
+  --chart-3: #ff6b9d;
+  --chart-4: #10b981;
+  --chart-5: #f59e0b;
+  --sidebar: #1a1f3a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00d4ff;
+  --sidebar-primary-foreground: #0a0e27;
+  --sidebar-accent: #2a2f4a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2a2f4a;
+  --sidebar-ring: #00d4ff;
+}
+
+.dark {
+  --background: #0a0e27;
+  --foreground: #ffffff;
+  --card: #1a1f3a;
+  --card-foreground: #ffffff;
+  --popover: #1a1f3a;
+  --popover-foreground: #ffffff;
+  --primary: #00d4ff;
+  --primary-foreground: #0a0e27;
+  --secondary: #8b5cf6;
+  --secondary-foreground: #ffffff;
+  --muted: #2a2f4a;
+  --muted-foreground: #a0a9c0;
+  --accent: #ff6b9d;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --border: #2a2f4a;
+  --input: #2a2f4a;
+  --ring: #00d4ff;
+  --chart-1: #00d4ff;
+  --chart-2: #8b5cf6;
+  --chart-3: #ff6b9d;
+  --chart-4: #10b981;
+  --chart-5: #f59e0b;
+  --sidebar: #1a1f3a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00d4ff;
+  --sidebar-primary-foreground: #0a0e27;
+  --sidebar-accent: #2a2f4a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #2a2f4a;
+  --sidebar-ring: #00d4ff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+}
+
+/* 科技感动画效果 */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 15px var(--primary);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: var(--primary);
+    opacity: 1;
+  }
+  50% {
+    border-color: var(--accent);
+    opacity: 0.7;
+  }
+}
+
+/* 高级背景效果 */
+.enhanced-background {
+  position: relative;
+  background-color: var(--background);
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* 发光轨迹效果 */
+.glow-trail {
+  position: absolute;
+  width: 1px;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+  opacity: 0;
+  animation: glow-trail 8s ease-in-out infinite;
+}
+
+@keyframes glow-trail {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%) rotate(10deg);
+  }
+  20% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(10deg);
+  }
+}
+
+/* 呼吸光晕效果 */
+.breathing-glow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  animation: breathing 6s ease-in-out infinite;
+  opacity: 0.05;
+}
+
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.05;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.1;
+  }
+}
+
+/* 增强型页面过渡效果 */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+/* 粒子背景效果 */
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 发光按钮效果 */
+.glow-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+  animation: glow 2s ease-in-out infinite;
+  transform: translateY(-2px);
+}
+
+.glow-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.glow-button:hover::before {
+  left: 100%;
+}
+
+/* 科技感边框 */
+.tech-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+              linear-gradient(45deg, var(--primary), var(--accent), var(--secondary)) border-box;
+}
+
+.tech-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
+  border-radius: inherit;
+  z-index: -1;
+  animation: pulse-border 3s ease-in-out infinite;
+}
+
+/* 二次元风格文字效果 */
+.anime-text {
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+/* 渐变背景 */
+.hero-background {
+  background-image: url("/new_background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* 添加一层半透明黑色蒙版 */
+  z-index: 0;
+}
+
+.content-container {
+  position: relative;
+  z-index: 1; /* 确保内容在背景蒙版上方 */
+}
+
+/* 鼠标跟随效果 */
+.cursor-fx {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+  transition: transform 0.2s ease-out;
+}
+
+.cursor-fx.active {
+  transform: scale(1.5);
+  background: var(--accent);
+}
+
+/* 高光效果卡片 */
+.highlight-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.highlight-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  opacity: 0;
+  transform: rotate(30deg);
+  transition: opacity 0.3s;
+}
+
+.highlight-card:hover::before {
+  opacity: 1;
+}
+
+.hover-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3),
+              0 0 15px -3px var(--primary);
+}
+
+.hero-title {
+  text-shadow: 0 0 10px var(--primary),
+               0 0 20px rgba(0, 212, 255, 0.4),
+               0 0 30px rgba(0, 212, 255, 0.2);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-grid-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+}
