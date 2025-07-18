@@ -82,10 +82,10 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/60 z-5"></div>
 
       {/* 内容区域 */}
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
         {/* 主标题 */}
         <motion.h1
-          className="text-6xl md:text-8xl font-bold text-white mb-8 drop-shadow-2xl"
+          className="text-5xl md:text-7xl font-bold text-white mb-8 drop-shadow-2xl"
           style={{
             textShadow: '0 0 30px rgba(0,0,0,0.8), 0 0 60px rgba(0,0,0,0.6)'
           }}
@@ -93,12 +93,12 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Evercall
+          Evercall，连接平行世界
         </motion.h1>
 
         {/* 副标题 */}
         <motion.p
-          className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-lg"
+          className="text-ml md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-lg"
           style={{
             textShadow: '0 0 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6)'
           }}
