@@ -125,19 +125,18 @@ const Navbar = () => {
   };
 
   return (
-    <section className="py-4 fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
+    <section className="py-4 fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
       <div className="container max-w-7xl mx-auto px-4">
         <nav className="hidden justify-between lg:flex items-center">
           <div className="flex items-center gap-6">
             <Link to={logo.url} className="flex items-center gap-2">
               <img src="/logo.png" alt="Evercall" className="w-42" />
-              {/*<span className="text-lg font-semibold">{logo.title}</span>*/}
             </Link>
           </div>
 
           <div className="flex-1 flex items-center justify-center">
               <NavigationMenu>
-                <NavigationMenuList>
+                <NavigationMenuList className="gap-8">
                   {menu.map((item) => renderMenuItem(item))}
                 </NavigationMenuList>
               </NavigationMenu>
@@ -270,7 +269,7 @@ const renderMenuItem = (item) => {
   return (
     <Link
       key={item.title}
-      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+      className="group inline-flex h-10 w-max items-center justify-center px-4 py-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
       to={item.url}
     >
       {item.title}
