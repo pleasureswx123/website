@@ -85,9 +85,14 @@ export function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
         {/* 主标题 */}
         <motion.h1
-          className="text-5xl md:text-7xl font-bold text-white mb-8 drop-shadow-2xl"
+          className="text-5xl md:text-7xl font-bold mb-8 drop-shadow-2xl"
           style={{
-            textShadow: '0 0 30px rgba(0,0,0,0.8), 0 0 60px rgba(0,0,0,0.6)'
+            background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 15%, #e2e8f0 30%, #cbd5e1 45%, #94a3b8 60%, #64748b 75%, #475569 90%, #334155 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            textShadow: '0 0 30px rgba(255,255,255,0.3), 0 0 60px rgba(255,255,255,0.2)',
+            filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))'
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
