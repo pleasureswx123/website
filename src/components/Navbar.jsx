@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 
 import {
@@ -33,11 +34,11 @@ const Navbar = () => {
 
   const menu = [
     { title: "首页", url: "/" },
-    { title: "角色", url: "#" },
-    { title: "新闻", url: "#" },
-    { title: "技术", url: "#" },
-    { title: "体验", url: "#" },
-    { title: "关于我们", url: "#" },
+    { title: "角色", url: "/characters" },
+    { title: "新闻", url: "/news" },
+    { title: "技术", url: "/technology" },
+    { title: "体验", url: "/experience" },
+    { title: "关于我们", url: "/about" },
     // {
     //   title: "产品",
     //   url: "#",
@@ -116,7 +117,7 @@ const Navbar = () => {
   ];
 
   const tryBtn = {
-    btn: { text: "立即体验", url: "/try" },
+    btn: { text: "立即体验", url: "/experience" },
   };
   const auth = {
     // login: { text: "登录", url: "/login" },
@@ -128,10 +129,10 @@ const Navbar = () => {
       <div className="container max-w-7xl mx-auto px-4">
         <nav className="hidden justify-between lg:flex items-center">
           <div className="flex items-center gap-6">
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link to={logo.url} className="flex items-center gap-2">
               <img src="/logo.png" alt="Evercall" className="w-42" />
               {/*<span className="text-lg font-semibold">{logo.title}</span>*/}
-            </a>
+            </Link>
           </div>
 
           <div className="flex-1 flex items-center justify-center">
@@ -145,7 +146,7 @@ const Navbar = () => {
           <div className="flex gap-2">
             {tryBtn && (
               <Button asChild variant="outline" size="sm">
-                <a href={tryBtn.btn.url}>{tryBtn.btn.text}</a>
+                <Link to={tryBtn.btn.url}>{tryBtn.btn.text}</Link>
               </Button>
             )}
             {auth && auth.login && (
@@ -162,10 +163,10 @@ const Navbar = () => {
         </nav>
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link to={logo.url} className="flex items-center gap-2">
               <img src="/logo.png" alt="Evercall" className="w-8 h-8" />
               <span className="text-lg font-semibold">{logo.title}</span>
-            </a>
+            </Link>
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
@@ -175,12 +176,12 @@ const Navbar = () => {
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
+                    <Link to={logo.url} className="flex items-center gap-2">
                       <img src="/logo.png" alt="Evercall" className="w-8 h-8" />
                       <span className="text-lg font-semibold">
                         {logo.title}
                       </span>
-                    </a>
+                    </Link>
                   </SheetTitle>
                 </SheetHeader>
                 <div className="my-6 flex flex-col gap-6">
@@ -194,20 +195,20 @@ const Navbar = () => {
                   <div className="border-t py-4">
                     <div className="grid grid-cols-2 justify-start">
                       {mobileExtraLinks.map((link, idx) => (
-                        <a
+                        <Link
                           key={idx}
                           className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
-                          href={link.url}
+                          to={link.url}
                         >
                           {link.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
                   <div className="flex flex-col gap-3">
                     {tryBtn && (
                       <Button asChild>
-                        <a href={tryBtn.btn.url}>{tryBtn.btn.text}</a>
+                        <Link to={tryBtn.btn.url}>{tryBtn.btn.text}</Link>
                       </Button>
                     )}
                     {auth && auth.login && (
@@ -267,13 +268,13 @@ const renderMenuItem = (item) => {
   }
 
   return (
-    <a
+    <Link
       key={item.title}
       className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
-      href={item.url}
+      to={item.url}
     >
       {item.title}
-    </a>
+    </Link>
   );
 };
 
@@ -308,9 +309,9 @@ const renderMobileMenuItem = (item) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="font-semibold">
+    <Link key={item.title} to={item.url} className="font-semibold">
       {item.title}
-    </a>
+    </Link>
   );
 };
 
